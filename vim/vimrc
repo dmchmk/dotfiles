@@ -1,0 +1,35 @@
+filetype plugin indent on "Включает определение типа файла, загрузку...
+"... соответствующих ему плагинов и файлов отступов
+set encoding=utf-8 "Ставит кодировку UTF-8
+" set nocompatible "Отключает обратную совместимость с Vi
+syntax enable "Включает подсветку синтаксиса
+set term=xterm-256color
+
+" Folding params
+set foldlevelstart=20
+" Folding toggle hotkey remap
+nnoremap <Space> za 
+
+if empty(glob('~/.vim/autoload/plug.vim')) "Если vim-plug не стоит
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs 
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+  "И скачать его оттуда
+  "А после прогнать команду PlugInstall, о которой мы сейчас поговорим
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/bundle') "Начать искать плагины в этой директории
+  Plug 'vim-airline/vim-airline'
+  Plug 'Yggdroot/indentLine'
+call plug#end() "Перестать это делать
+
+" To enable powerfonts you first need to install it system-wide: https://github.com/ryanoasis/nerd-fonts#font-installation
+" Then you need to enable Non-ASCII font displaying on your terminal settings
+let g:airline_powerline_fonts = 1 "Включить поддержку Powerline шрифтов
+let g:airline#extensions#keymap#enabled = 0 "Не показывать текущий маппинг
+let g:airline_section_z = "\ue0a1:%l/%L Col:%c" "Кастомная графа положения курсора
+let g:Powerline_symbols='unicode' "Поддержка unicode
+
+" YAML files config
+autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
+let g:indentLine_char = '⦙'
