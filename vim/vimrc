@@ -4,6 +4,7 @@ set encoding=utf-8 "Ставит кодировку UTF-8
 " set nocompatible "Отключает обратную совместимость с Vi
 syntax enable "Включает подсветку синтаксиса
 set term=xterm-256color
+set number relativenumber
 
 " Folding params
 set foldlevelstart=20
@@ -21,6 +22,7 @@ endif
 call plug#begin('~/.vim/bundle') "Начать искать плагины в этой директории
   Plug 'vim-airline/vim-airline'
   Plug 'Yggdroot/indentLine'
+  Plug 'airblade/vim-gitgutter'
 call plug#end() "Перестать это делать
 
 " To enable powerfonts you first need to install it system-wide: https://github.com/ryanoasis/nerd-fonts#font-installation
@@ -29,6 +31,11 @@ let g:airline_powerline_fonts = 1 "Включить поддержку Powerline
 let g:airline#extensions#keymap#enabled = 0 "Не показывать текущий маппинг
 let g:airline_section_z = "\ue0a1:%l/%L Col:%c" "Кастомная графа положения курсора
 let g:Powerline_symbols='unicode' "Поддержка unicode
+
+highlight SignColumn ctermbg=none
+highlight GitGutterAdd ctermbg=none
+highlight GitGutterChange ctermbg=none
+highlight GitGutterDelete ctermbg=none
 
 " YAML files config
 autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
