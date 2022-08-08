@@ -23,6 +23,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'vim-airline/vim-airline'
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
+  Plug 'preservim/nerdtree'
 call plug#end() "Перестать это делать
 
 "
@@ -41,6 +42,17 @@ let g:Powerline_symbols='unicode' " Unicode support
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn ctermbg=none
 set updatetime=100
+
+"
+" NERDTree plugin config
+"
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+highlight VertSplit cterm=none
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " YAML files config
 autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
