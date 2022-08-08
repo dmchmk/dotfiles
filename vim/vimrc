@@ -1,15 +1,16 @@
 filetype plugin indent on "Включает определение типа файла, загрузку...
 "... соответствующих ему плагинов и файлов отступов
 set encoding=utf-8 "Ставит кодировку UTF-8
-" set nocompatible "Отключает обратную совместимость с Vi
-syntax enable "Включает подсветку синтаксиса
+syntax enable
 set term=xterm-256color
 set number relativenumber
 
+" Changing <leader> key from \ to <space>
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+
 " Folding params
 set foldlevelstart=20
-" Folding toggle hotkey remap
-nnoremap <Space> za 
 
 if empty(glob('~/.vim/autoload/plug.vim')) "Если vim-plug не стоит
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs 
