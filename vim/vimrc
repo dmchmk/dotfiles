@@ -23,6 +23,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'vim-airline/vim-airline'
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
+  Plug 'jreybert/vimagit'
   Plug 'preservim/nerdtree'
 call plug#end() "Перестать это делать
 
