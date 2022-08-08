@@ -3,6 +3,7 @@ filetype plugin indent on "Включает определение типа фа
 set encoding=utf-8 "Ставит кодировку UTF-8
 syntax enable
 set term=xterm-256color
+colorscheme atom-dark-256
 set number relativenumber
 
 " Changing <leader> key from \ to <space>
