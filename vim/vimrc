@@ -5,6 +5,8 @@ syntax enable
 set term=xterm-256color
 colorscheme atom-dark-256
 set number relativenumber
+set backspace=indent,eol,start
+filetype plugin indent on
 
 " Changing <leader> key from \ to <space>
 nnoremap <SPACE> <Nop>
