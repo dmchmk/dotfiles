@@ -32,6 +32,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'airblade/vim-gitgutter'
   Plug 'jreybert/vimagit'
   Plug 'preservim/nerdtree'
+  Plug 'towolf/vim-helm'
 call plug#end() "Перестать это делать
 
 "
