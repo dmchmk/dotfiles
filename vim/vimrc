@@ -3,7 +3,7 @@ filetype plugin indent on "Включает определение типа фа
 set encoding=utf-8 "Ставит кодировку UTF-8
 syntax enable
 set term=xterm-256color
-set timeoutlen=10 ttimeoutlen=0 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+set timeoutlen=200 ttimeoutlen=0 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 colorscheme atom-dark-256
 set number relativenumber
 set backspace=indent,eol,start
