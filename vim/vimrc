@@ -1,3 +1,6 @@
+" TODO: fzf enable search through hidden files - https://www.reddit.com/r/neovim/comments/fzeccx/how_can_i_make_fzf_include_hidden_directories/
+" TODO: fix fzf search the same dir in different windows https://vimways.org/2019/vim-and-the-working-directory/
+" TODO: create readme file about navigation
 filetype plugin indent on "Включает определение типа файла, загрузку...
 "... соответствующих ему плагинов и файлов отступов
 set encoding=utf-8 "Ставит кодировку UTF-8
@@ -8,6 +11,16 @@ colorscheme atom-dark-256
 set number relativenumber
 set backspace=indent,eol,start
 filetype plugin indent on
+
+" tabs navigation
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>i
+nnoremap H gT
+nnoremap L gt
 
 " Changing <leader> key from \ to <space>
 nnoremap <SPACE> <Nop>
