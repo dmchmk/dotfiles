@@ -1,13 +1,30 @@
 filetype plugin indent on "Включает определение типа файла, загрузку...
 "... соответствующих ему плагинов и файлов отступов
-set encoding=utf-8 "Ставит кодировку UTF-8
+set encoding=utf-8
 syntax enable
-set term=xterm-256color
 set timeoutlen=200 ttimeoutlen=0 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
-colorscheme atom-dark-256
 set number relativenumber
 set backspace=indent,eol,start
 filetype plugin indent on
+
+"
+" Colors configuration
+"
+set term=xterm-256color
+colorscheme atom-dark-256
+AirlineTheme dark
+
+function ToggleColors()
+    if (g:colors_name == "atom-dark-256")
+        colorscheme antiphoton
+        AirlineTheme light
+    else
+        colorscheme atom-dark-256
+        AirlineTheme dark
+    endif
+endfunction
+
+nnoremap <C-b> :call ToggleColors()<CR>
 
 " Changing <leader> key from \ to <space>
 nnoremap <SPACE> <Nop>
@@ -31,6 +48,7 @@ endif
 
 call plug#begin('~/.vim/bundle') "Начать искать плагины в этой директории
   Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'Yggdroot/indentLine'
   Plug 'airblade/vim-gitgutter'
   Plug 'jreybert/vimagit'
