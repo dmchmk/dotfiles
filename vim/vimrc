@@ -35,16 +35,16 @@ call plug#end() "Перестать это делать
 "
 set term=xterm-256color
 colorscheme atom-dark-256
-AirlineTheme dark
+let g:airline_theme='dark'
 
 function ToggleColors()
-    if (g:colors_name == "atom-dark-256")
-        colorscheme antiphoton
-        AirlineTheme light
-    else
-        colorscheme atom-dark-256
-        AirlineTheme dark
-    endif
+  if (g:colors_name == "atom-dark-256")
+    colorscheme antiphoton
+    let g:airline_theme='light'
+  else
+    colorscheme atom-dark-256
+    let g:airline_theme='dark'
+  endif
 endfunction
 
 nnoremap <C-b> :call ToggleColors()<CR>
