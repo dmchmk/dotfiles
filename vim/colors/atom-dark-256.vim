@@ -308,7 +308,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=117 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=231 ctermfg=66 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=bg ctermfg=bg gui=reverse guibg=bg guifg=bg
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
@@ -628,7 +628,7 @@ elseif has("gui_running") || (&t_Co == 256 && (&term ==# "xterm" || &term =~# "^
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=123 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=255 ctermfg=102 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=bg ctermfg=bg gui=reverse guibg=bg guifg=bg
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=189 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=95 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=95 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
@@ -948,7 +948,7 @@ elseif has("gui_running") || &t_Co == 256
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=81 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=231 ctermfg=59 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=244 ctermfg=232 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=bg ctermfg=bg gui=reverse guibg=bg guifg=bg
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=146 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=59 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
@@ -1268,7 +1268,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi Question term=NONE cterm=bold ctermbg=bg ctermfg=43 gui=bold guibg=bg guifg=#66D9EF
     CSAHi StatusLine term=bold,reverse cterm=NONE ctermbg=79 ctermfg=21 gui=NONE guibg=fg guifg=#455354
     CSAHi StatusLineNC term=reverse cterm=reverse ctermbg=83 ctermfg=16 gui=reverse guibg=#080808 guifg=#808080
-    CSAHi VertSplit term=reverse cterm=reverse ctermbg=83 ctermfg=16 gui=reverse guibg=#080808 guifg=#808080
+    CSAHi VertSplit term=reverse cterm=reverse ctermbg=bg ctermfg=bg gui=reverse guibg=bg guifg=bg
     CSAHi Title term=bold cterm=NONE ctermbg=bg ctermfg=59 gui=NONE guibg=bg guifg=#B6B7EB
     CSAHi Visual term=reverse cterm=NONE ctermbg=80 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
     CSAHi VisualNOS term=NONE cterm=NONE ctermbg=80 ctermfg=fg gui=NONE guibg=#403D3D guifg=fg
@@ -1293,7 +1293,7 @@ elseif has("gui_running") || &t_Co == 88
     CSAHi LightLineLeft_insert_1_2 term=NONE cterm=NONE ctermbg=21 ctermfg=22 gui=NONE guibg=#005f87 guifg=#0087af
     CSAHi LightLineLeft_insert_1_tabsel term=NONE cterm=NONE ctermbg=80 ctermfg=22 gui=NONE guibg=#262626 guifg=#0087af
     CSAHi LightLineLeft_insert_tabsel_1 term=NONE cterm=NONE ctermbg=22 ctermfg=80 gui=NONE guibg=#0087af guifg=#262626
-    CSAHi LightLineMiddle_insert term=NONE cterm=NONE ctermbg=21 ctermfg=43 gui=NONE guibg=#005f87 guifg=#87dfff
+    CSAHi LightLineMiddle_insert term=NONE cterm=NONE ctermbg=22 ctermfg=43 gui=NONE guibg=#005f87 guifg=#87dfff
     CSAHi LightLineRight_insert_0_1 term=NONE cterm=NONE ctermbg=22 ctermfg=43 gui=NONE guibg=#0087af guifg=#87dfff
     CSAHi vimNormCmds term=NONE cterm=NONE ctermbg=bg ctermfg=fg gui=NONE guibg=bg guifg=fg
     CSAHi Folded term=NONE cterm=NONE ctermbg=16 ctermfg=81 gui=NONE guibg=#000000 guifg=#465457
