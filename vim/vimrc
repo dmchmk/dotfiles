@@ -68,6 +68,7 @@ let g:Powerline_symbols='unicode' " Unicode support
 "
 let g:gitgutter_override_sign_column_highlight = 1
 set updatetime=100
+nnoremap <leader>gu :GitGutterUndoHunk<CR> " undo git change under the line
 
 "
 " Magit plugin config
