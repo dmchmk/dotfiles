@@ -25,9 +25,11 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'airblade/vim-gitgutter'
   Plug 'jreybert/vimagit'
   Plug 'preservim/nerdtree'
-  Plug 'towolf/vim-helm'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+
+  Plug 'towolf/vim-helm'
+  Plug 'pearofducks/ansible-vim'
 call plug#end() "Перестать это делать
 
 "
@@ -115,6 +117,15 @@ nnoremap <silent> <Leader>H :Helptags<CR>
 nnoremap <silent> <Leader>hh :History<CR>
 nnoremap <silent> <Leader>h: :History:<CR>
 nnoremap <silent> <Leader>h/ :History/<CR>
+
+"
+" Ansible plugin config
+"
+let g:ansible_unindent_after_newline = 1
+let g:ansible_attribute_highlight = "ob"
+let g:ansible_extra_keywords_highlight = 1
+let g:ansible_name_highlight = 'b'
+let g:ansible_yamlKeyName = 'yamlKey'
 
 " YAML files config
 autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
