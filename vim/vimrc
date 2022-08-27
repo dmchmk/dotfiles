@@ -1,4 +1,6 @@
 " TODO: fzf enable search through hidden files - https://www.reddit.com/r/neovim/comments/fzeccx/how_can_i_make_fzf_include_hidden_directories/
+" * fixed for Rg, but not for Files yet
+
 " TODO: fix fzf search the same dir in different windows https://vimways.org/2019/vim-and-the-working-directory/
 " TODO: create readme file about navigation
 filetype plugin indent on "Включает определение типа файла, загрузку...
@@ -105,8 +107,15 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " fzf plugin config
 "
 let g:fzf_preview_window = 'right:50%'
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8  }  }
+command! -bang -nargs=* Rg call 
+      \fzf#vim#grep('rg 
+        \ --hidden 
+        \ -g !node_modules/ -g !.git/
+        \ --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 
+      \1, 
+      \fzf#vim#with_preview({'options': '--exact --delimiter : --nth 4..'}), <bang>0) "  is for strict search by default and other unknown stuff is to exclude filenames from search results
+
 
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
