@@ -92,6 +92,7 @@ nnoremap <leader>gu :GitGutterUndoHunk<CR> " undo git change under the line
 "
 nnoremap <leader>gs :Magit<CR>|       " git status
 nnoremap <leader>gp :! git push<CR>|  " git Push
+nnoremap <leader>gP :! git pull<CR>|  " git Pull
 
 "
 " NERDTree plugin config
