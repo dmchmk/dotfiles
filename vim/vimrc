@@ -8,6 +8,9 @@ filetype plugin indent on "Включает определение типа фа
 set encoding=utf-8
 syntax enable
 set timeoutlen=300 ttimeoutlen=0 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+" For coc-vim. Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
 set number relativenumber
 set backspace=indent,eol,start
 filetype plugin indent on
@@ -32,6 +35,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
 
   Plug 'towolf/vim-helm'
   Plug 'pearofducks/ansible-vim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end() "Перестать это делать
 
 "
@@ -137,6 +141,20 @@ let g:ansible_attribute_highlight = "ob"
 let g:ansible_extra_keywords_highlight = 1
 let g:ansible_name_highlight = 'b'
 let g:ansible_yamlKeyName = 'yamlKey'
+
+"
+" CoC plugin settings
+"
+let g:coc_global_extensions = ['coc-pyright']
+source ~/.vim/coc.vim
+function! s:enable_coc_for_type()
+        let l:filesuffix_whitelist = ['py']
+	if index(l:filesuffix_whitelist, expand('%:e')) == -1
+		let b:coc_enabled = 0
+	endif
+endfunction
+autocmd BufRead,BufNewFile * call s:enable_coc_for_type()
+
 
 " YAML files config
 autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
