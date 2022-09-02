@@ -5,6 +5,8 @@
 " TODO: create readme file about navigation
 filetype plugin indent on "Включает определение типа файла, загрузку...
 "... соответствующих ему плагинов и файлов отступов
+set nobackup
+set nowritebackup
 set encoding=utf-8
 syntax enable
 set timeoutlen=300 ttimeoutlen=0 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
