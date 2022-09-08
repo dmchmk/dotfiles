@@ -123,11 +123,13 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8  }  }
 command! -bang -nargs=* Rg call 
       \fzf#vim#grep('rg 
         \ --hidden 
+        \ --no-ignore
         \ -g !node_modules/ -g !.git/
         \ --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 
       \1, 
       \fzf#vim#with_preview({'options': '--exact --delimiter : --nth 4..'}), <bang>0) "  is for strict search by default and other unknown stuff is to exclude filenames from search results
 
+nnoremap <silent> <Leader>ag :Rg <C-R><C-W><CR>| " searching for word ander cursor
 
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
