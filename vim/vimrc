@@ -98,8 +98,12 @@ nnoremap <leader>gu :GitGutterUndoHunk<CR> " undo git change under the line
 " Magit plugin config
 "
 nnoremap <leader>gs :Magit<CR>|       " git status
-nnoremap <leader>gp :! git push<CR>|  " git Push
-nnoremap <leader>gP :! git pull<CR>|  " git Pull
+function GitPullPush(cmd)
+  echo system('git '.a:cmd)
+  " redraw!
+endfunction
+nnoremap <leader>gp :call GitPullPush("push")<CR>|  " git Push
+nnoremap <leader>gP :call GitPullPush("pull")<CR>|  " git Pull
 
 "
 " NERDTree plugin config
