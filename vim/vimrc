@@ -155,14 +155,14 @@ let g:ansible_yamlKeyName = 'yamlKey'
 " CoC plugin settings
 "
 let g:coc_global_extensions = ['coc-pyright']
-source ~/.vim/coc.vim
 function! s:enable_coc_for_type()
-        let l:filesuffix_whitelist = ['py']
+  let l:filesuffix_whitelist = ['py']
 	if index(l:filesuffix_whitelist, expand('%:e')) == -1
 		let b:coc_enabled = 0
 	endif
 endfunction
 autocmd BufRead,BufNewFile * call s:enable_coc_for_type()
+source ~/.vim/coc.vim
 
 
 " YAML files config
