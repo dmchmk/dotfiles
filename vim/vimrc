@@ -98,8 +98,12 @@ nnoremap <leader>gu :GitGutterUndoHunk<CR> " undo git change under the line
 " Magit plugin config
 "
 nnoremap <leader>gs :Magit<CR>|       " git status
-nnoremap <leader>gp :! git push<CR>|  " git Push
-nnoremap <leader>gP :! git pull<CR>|  " git Pull
+function GitPullPush(cmd)
+  echo system('git '.a:cmd)
+  " redraw!
+endfunction
+nnoremap <leader>gp :call GitPullPush("push")<CR>|  " git Push
+nnoremap <leader>gP :call GitPullPush("pull")<CR>|  " git Pull
 
 "
 " NERDTree plugin config
@@ -119,11 +123,13 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8  }  }
 command! -bang -nargs=* Rg call 
       \fzf#vim#grep('rg 
         \ --hidden 
+        \ --no-ignore
         \ -g !node_modules/ -g !.git/
         \ --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 
       \1, 
       \fzf#vim#with_preview({'options': '--exact --delimiter : --nth 4..'}), <bang>0) "  is for strict search by default and other unknown stuff is to exclude filenames from search results
 
+nnoremap <silent> <Leader>ag :Rg <C-R><C-W><CR>| " searching for word ander cursor
 
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
@@ -149,7 +155,6 @@ let g:ansible_yamlKeyName = 'yamlKey'
 " CoC plugin settings
 "
 let g:coc_global_extensions = ['coc-pyright']
-source ~/.vim/coc.vim
 function! s:enable_coc_for_type()
         let l:filesuffix_whitelist = ['py']
         if index(l:filesuffix_whitelist, expand('%:e')) == -1
@@ -157,6 +162,7 @@ function! s:enable_coc_for_type()
         endif
 endfunction
 autocmd BufRead,BufNewFile * call s:enable_coc_for_type()
+source ~/.vim/coc.vim
 
 
 " YAML files config
