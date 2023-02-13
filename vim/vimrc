@@ -59,6 +59,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'towolf/vim-helm'
   Plug 'pearofducks/ansible-vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'elzr/vim-json'
 call plug#end() "Перестать это делать
 
 "
