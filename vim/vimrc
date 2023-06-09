@@ -12,6 +12,7 @@ set encoding=utf-8
 syntax enable
 set timeoutlen=300 ttimeoutlen=0 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
 set clipboard=unnamed
+set nocompatible
 
 " For coc-vim. Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
