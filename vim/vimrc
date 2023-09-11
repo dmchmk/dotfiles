@@ -11,10 +11,31 @@ set noswapfile
 set encoding=utf-8
 syntax enable
 set timeoutlen=300 ttimeoutlen=0 " https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+set clipboard=unnamed
+set nocompatible
+
 " For coc-vim. Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
+
+" linenumbers, in relative manner
 set number relativenumber
+
+set splitbelow
+set splitright
+
+" [docs] split navigation
+" switching between splits
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+" resizing splits
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
 set backspace=indent,eol,start
 filetype plugin indent on
 
@@ -40,6 +61,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'towolf/vim-helm'
   Plug 'pearofducks/ansible-vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'elzr/vim-json'
 call plug#end() "Перестать это делать
 
 "
@@ -61,14 +83,10 @@ endfunction
 
 nnoremap <C-b> :call ToggleColors()<CR>
 
-" tabs navigation
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>i
+" [docs] tabs navigation
+" go left
 nnoremap H gT
+" go right
 nnoremap L gt
 
 
@@ -89,30 +107,30 @@ let g:airline_section_z = "㏑:%l/%L:%c" " Custom minimalistic current position 
 let g:Powerline_symbols='unicode' " Unicode support
 
 " 
-" Gitgutter plugin config
+" [docs] Gitgutter plugin config
 "
 let g:gitgutter_override_sign_column_highlight = 1
 set updatetime=100
-nnoremap <leader>gu :GitGutterUndoHunk<CR> " undo git change under the line
+nnoremap <leader>gu :GitGutterUndoHunk<CR>| " undo git change under the line
 
 "
-" Magit plugin config
+" [docs] Magit plugin config
 "
-nnoremap <leader>gs :Magit<CR>|       " git status
+nnoremap <leader>gs :Magit<CR>| " git status
 function GitPullPush(cmd)
   echo system('git '.a:cmd)
   " redraw!
 endfunction
-nnoremap <leader>gp :call GitPullPush("push")<CR>|  " git Push
-nnoremap <leader>gP :call GitPullPush("pull")<CR>|  " git Pull
+nnoremap <leader>gp :call GitPullPush("push")<CR>| " git Push
+nnoremap <leader>gP :call GitPullPush("pull")<CR>| " git Pull
 
 "
-" NERDTree plugin config
+" [docs] NERDTree plugin config
 "
 nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
@@ -130,8 +148,8 @@ command! -bang -nargs=* Rg call
       \1, 
       \fzf#vim#with_preview({'options': '--exact --delimiter : --nth 4..'}), <bang>0) "  is for strict search by default and other unknown stuff is to exclude filenames from search results
 
+" [docs] fzf hotkeys
 nnoremap <silent> <Leader>ag :Rg <C-R><C-W><CR>| " searching for word ander cursor
-
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>gr :Rg<CR>
@@ -155,9 +173,9 @@ let g:ansible_yamlKeyName = 'yamlKey'
 "
 " CoC plugin settings
 "
-let g:coc_global_extensions = ['coc-pyright']
+let g:coc_global_extensions = ['coc-pyright', 'coc-flutter', 'coc-sh']
 function! s:enable_coc_for_type()
-        let l:filesuffix_whitelist = ['py']
+        let l:filesuffix_whitelist = ['py', 'dart', 'sh']
         if index(l:filesuffix_whitelist, expand('%:e')) == -1
           let b:coc_enabled = 0
         endif

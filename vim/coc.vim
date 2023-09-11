@@ -21,8 +21,6 @@ endfunction
 "   inoremap <silent><expr> <Leader>c coc#refresh()
 " endif
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
@@ -32,11 +30,13 @@ function! ShowDocumentation()
   endif
 endfunction
 
+" [docs] Coc-vim hotkeys
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call ShowDocumentation()<CR>
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
