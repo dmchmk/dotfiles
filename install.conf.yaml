@@ -9,5 +9,15 @@
     ~/.vim: vim
     ~/.zshrc: zsh/zshrc
 
+- asdf:
+  - plugin: vim
+    global: 9.0.1473
+    versions:
+      - 9.0.1473
+  - plugin: nodejs
+    global: 19.0.0
+    versions:
+      - 19.0.0
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
