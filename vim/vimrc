@@ -63,6 +63,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'pearofducks/ansible-vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'elzr/vim-json'
+"  Plug 'Exafunction/codeium.vim'
 call plug#end() "Перестать это делать
 
 "
@@ -105,6 +106,7 @@ set foldlevelstart=20
 let g:airline_powerline_fonts = 0 " Disable powerline fonts
 let g:airline#extensions#keymap#enabled = 0 " Do not show keyboard mapping
 let g:airline_section_z = "㏑:%l/%L:%c" " Custom minimalistic current position section
+" let g:airline_section_y = '{…}%3{codeium#GetStatusString()}'
 let g:Powerline_symbols='unicode' " Unicode support
 
 " 
