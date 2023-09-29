@@ -1,3 +1,5 @@
 {
-	"pyright.inlayHints.enable": false
+	"inlayHints.enable": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+    "pyright.inlayHints.variableTypes": false
 }
