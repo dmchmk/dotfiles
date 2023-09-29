@@ -57,6 +57,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'preservim/nerdtree'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'justinmk/vim-sneak'
 
   Plug 'towolf/vim-helm'
   Plug 'pearofducks/ansible-vim'
@@ -183,6 +184,10 @@ endfunction
 autocmd BufRead,BufNewFile * call s:enable_coc_for_type()
 source ~/.vim/coc.vim
 
+"
+" vim-sneak plugin settings
+"
+let g:sneak#label = 1
 
 " YAML files config
 autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
