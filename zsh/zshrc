@@ -12,4 +12,8 @@ setopt histignoredups
 
 source ~/.dotfiles/git/git-prompt.sh
 setopt PROMPT_SUBST ; PS1='%n@%m %c$(__git_ps1 " [%s]")\$ '
-source ~/.zshrc_local
+
+if [ -f "~/.zsh_local" ]
+then
+  source ~/.zshrc_local
+fi
