@@ -5,3 +5,7 @@ then
   autoload -Uz compinit
   compinit
 fi
+
+setopt appendhistory # Append history to the history file (no overwriting)
+setopt incappendhistory # Immediately append to the history file, not just when a term is killed
+setopt histignoredups
