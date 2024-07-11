@@ -6,3 +6,15 @@ then
   autoload -Uz compinit
   compinit
 fi
+
+setopt appendhistory # Append history to the history file (no overwriting)
+setopt incappendhistory # Immediately append to the history file, not just when a term is killed
+setopt histignoredups
+
+source ~/.dotfiles/git/git-prompt.sh
+setopt PROMPT_SUBST ; PS1='%n@%m %c$(__git_ps1 " [%s]")\$ '
+
+if [ -f "~/.zsh_local" ]
+then
+  source ~/.zshrc_local
+fi
