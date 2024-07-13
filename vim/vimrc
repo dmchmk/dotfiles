@@ -176,9 +176,9 @@ let g:ansible_yamlKeyName = 'yamlKey'
 "
 " CoC plugin settings
 "
-let g:coc_global_extensions = ['coc-pyright', 'coc-sh']
+let g:coc_global_extensions = ['coc-pyright', 'coc-sh', 'coc-go']
 function! s:enable_coc_for_type()
-        let l:filesuffix_whitelist = ['py', 'sh']
+        let l:filesuffix_whitelist = ['py', 'sh', 'go']
         if index(l:filesuffix_whitelist, expand('%:e')) == -1
           let b:coc_enabled = 0
         endif
