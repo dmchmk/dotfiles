@@ -1,2 +1,2 @@
 alias l="ls -lah"
-alias lg="lazygit"
+alias lg="LANG=en_US-UTF-8 lazygit"
