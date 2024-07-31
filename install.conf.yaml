@@ -7,8 +7,8 @@
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
-    ~/.zshrc: zsh/zshrc
-    ~/.bashrc: bash/bashrc
+    ~/.zshrc: shell/zsh/zshrc
+    ~/.bashrc: shell/bash/bashrc
 
 - asdf:
   - plugin: vim
