@@ -63,6 +63,8 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'pearofducks/ansible-vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'elzr/vim-json'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'hashivim/vim-terraform'
 "  Plug 'Exafunction/codeium.vim'
 call plug#end() "Перестать это делать
 
