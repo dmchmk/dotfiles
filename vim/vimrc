@@ -39,6 +39,8 @@ noremap <silent> <C-Down> :resize -3<CR>
 set backspace=indent,eol,start
 filetype plugin indent on
 
+let hostname = substitute(system('hostname'), '\n', '', '')
+
 if empty(glob('~/.vim/autoload/plug.vim')) "Если vim-plug не стоит
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs 
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
@@ -179,6 +181,11 @@ let g:ansible_yamlKeyName = 'yamlKey'
 "
 " CoC plugin settings
 "
+if hostname == "i113855042"
+  let g:coc_user_config = '~/.vim/coc-lsp/coc-settings-cloudia.json'
+else
+  let g:coc_user_config = '~/.vim/coc-lsp/coc-settings.json'
+endif
 let g:coc_global_extensions = ['coc-pyright', 'coc-sh', 'coc-go']
 function! s:enable_coc_for_type()
         let l:filesuffix_whitelist = ['py', 'sh', 'go', 'gd', 'gdscript']
@@ -187,7 +194,7 @@ function! s:enable_coc_for_type()
         endif
 endfunction
 autocmd BufRead,BufNewFile * call s:enable_coc_for_type()
-source ~/.vim/coc.vim
+source ~/.vim/coc-lsp/coc.vim
 
 "
 " vim-sneak plugin settings

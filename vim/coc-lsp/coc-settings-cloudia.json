@@ -1,0 +1,14 @@
+{
+  "inlayHints.enable": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
+  "go.goplsOptions": {
+    "standaloneTags": ["ignore"],
+    "arcadiaIndexDirs": [
+      "cli/",
+      "api/",
+      "gateway/"
+    ]
+  },
+  "go.goplsPath": "/Users/dmchumak/.ya/tools/v4/gopls-darwin-arm64/gopls"
+}

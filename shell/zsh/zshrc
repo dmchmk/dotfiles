@@ -19,3 +19,10 @@ if [ -f ~/.zshrc_local ]
 then
   source ~/.zshrc_local
 fi
+
+# The next line updates PATH for CLI.
+if [ -f '/Users/dmchumak/yandex-cloud/path.bash.inc' ]; then source '/Users/dmchumak/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/Users/dmchumak/yandex-cloud/completion.zsh.inc' ]; then source '/Users/dmchumak/yandex-cloud/completion.zsh.inc'; fi
+
