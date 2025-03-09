@@ -9,6 +9,7 @@
     ~/.vim: vim
     ~/.zshrc: shell/zsh/zshrc
     ~/.bashrc: shell/bash/bashrc
+    ~/.config/nvim: nvim
 
 - asdf:
   - plugin: vim
