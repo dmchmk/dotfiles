@@ -66,6 +66,7 @@ call plug#begin('~/.vim/bundle') "Начать искать плагины в э
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'hashivim/vim-terraform'
 "  Plug 'Exafunction/codeium.vim'
+  Plug 'habamax/vim-godot'
 call plug#end() "Перестать это делать
 
 "
@@ -180,7 +181,7 @@ let g:ansible_yamlKeyName = 'yamlKey'
 "
 let g:coc_global_extensions = ['coc-pyright', 'coc-sh', 'coc-go']
 function! s:enable_coc_for_type()
-        let l:filesuffix_whitelist = ['py', 'sh', 'go']
+        let l:filesuffix_whitelist = ['py', 'sh', 'go', 'gd', 'gdscript']
         if index(l:filesuffix_whitelist, expand('%:e')) == -1
           let b:coc_enabled = 0
         endif
@@ -196,3 +197,6 @@ let g:sneak#label = 1
 " YAML files config
 autocmd FileType yaml,yml setlocal ts=2 sts=2 sw=2 expandtab
 let g:indentLine_char = '⦙'
+
+" vim-go settings
+let g:go_fmt_autosave = 1
