@@ -8,6 +8,7 @@ vim.opt.smartcase = true
 -- show line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
 
 -- show trailing whitespace
 vim.opt.list = true
@@ -17,6 +18,6 @@ vim.opt.listchars = {
   trail = '·',
   extends = '…',
   precedes = '…'
-}    
+}
 
 vim.cmd([[match errorMsg /\s\+$/]])

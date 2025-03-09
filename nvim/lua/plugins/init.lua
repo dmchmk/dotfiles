@@ -29,6 +29,7 @@ local plugins = {
       })
 
       vim.cmd('colorscheme github_light_colorblind')
+      -- vim.cmd('colorscheme github_light')
       -- vim.cmd('colorscheme github_dark_colorblind')
       -- vim.cmd('colorscheme github_dark')
     end,
