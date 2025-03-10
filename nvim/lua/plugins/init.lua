@@ -38,13 +38,33 @@ local plugins = {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   },
-  'hrsh7th/nvim-cmp',       -- Auto-completion plugin
-  dependencies = {
-    'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
-    'hrsh7th/cmp-buffer',   -- Buffer source for nvim-cmp
-    'hrsh7th/cmp-path',     -- Path source for nvim-cmp
+  {
+    'hrsh7th/nvim-cmp',       -- Auto-completion plugin
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
+      'hrsh7th/cmp-buffer',   -- Buffer source for nvim-cmp
+      'hrsh7th/cmp-path',     -- Path source for nvim-cmp
+      'L3MON4D3/LuaSnip',
+    },
   },
-    'L3MON4D3/LuaSnip',
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show({ global = false })
+        end,
+        desc = "Buffer Local Keymaps (which-key)",
+      },
+    },
+  }
 }
 
 require("lazy").setup(plugins)
