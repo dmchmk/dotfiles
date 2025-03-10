@@ -4,6 +4,7 @@ require("mason-lspconfig").setup({
     'lua_ls',
     'gopls',
     'bashls',
+    'pyright',
   },
   automatic_installation = true,
 })
@@ -109,3 +110,4 @@ require("lspconfig").bashls.setup {capabilities = capabilities, handlers = handl
     }
   }
 }
+require'lspconfig'.pyright.setup{}
