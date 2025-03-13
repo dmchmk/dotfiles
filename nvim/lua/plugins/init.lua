@@ -67,8 +67,8 @@ local plugins = {
   },
   -- GitSigns
   {
+    (not IsYandex) and "lewis6991/gitsigns.nvim" or nil,
     dir = (IsYandex) and "~/arcadia/contrib/tier1/gitsigns.arc.nvim" or nil,
-    url = (not IsYandex) and "lewis6991/gitsigns.nvim" or nil,
   }
 }
 
