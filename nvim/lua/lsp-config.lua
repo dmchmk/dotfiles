@@ -113,6 +113,8 @@ require("lspconfig").bashls.setup { capabilities = capabilities, handlers = hand
 }
 require("lspconfig").pyright.setup { capabilities = capabilities, handlers = handlers,
   on_attach = on_attach,
+  -- more details on configuring pyright can be found here
+  -- https://microsoft.github.io/pyright/#/settings?id=pyright-settings
   settings = {
     python = {
       analysis = {

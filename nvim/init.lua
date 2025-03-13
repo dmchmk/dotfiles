@@ -1,3 +1,4 @@
+require("funcs")
 require("options")
 require("keymap")
 require("plugins/init")

@@ -64,6 +64,11 @@ local plugins = {
         desc = "Buffer Local Keymaps (which-key)",
       },
     },
+  },
+  -- GitSigns
+  {
+    dir = (IsYandex) and "~/arcadia/contrib/tier1/gitsigns.arc.nvim" or nil,
+    url = (not IsYandex) and "lewis6991/gitsigns.nvim" or nil,
   }
 }
 
@@ -71,3 +76,4 @@ require("lazy").setup(plugins)
 
 require("plugins/telescope")
 require("plugins/completions")
+require("plugins/gitsigns")
