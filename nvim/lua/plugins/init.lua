@@ -69,7 +69,21 @@ local plugins = {
   {
     (not IsYandex) and "lewis6991/gitsigns.nvim" or nil,
     dir = (IsYandex) and "~/arcadia/contrib/tier1/gitsigns.arc.nvim" or nil,
-  }
+  },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    keys = { -- Example mapping to toggle outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {
+      outline_window = {
+        position = "left",
+      }
+      -- Your setup opts here
+    },
+  },
 }
 
 require("lazy").setup(plugins)

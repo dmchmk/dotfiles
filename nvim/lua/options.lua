@@ -9,7 +9,7 @@ vim.opt.smartcase = true
 
 -- show line numbers
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.cursorline = true
 
 -- show trailing whitespace
@@ -34,3 +34,7 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- Keymap to copy to system buffer
 vim.keymap.set('n','<leader>y','"+yy')
 vim.keymap.set('v','<leader>y','"+y')
+
+-- Keymap to navigate between tabs
+vim.keymap.set('n', 'H', 'gT')
+vim.keymap.set('n', 'L', 'gt')
