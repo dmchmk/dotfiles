@@ -1,3 +1,4 @@
+vim.g.editorconfig = false
 IsYandex = Contains({"i113855042", "dmchumak-dev.sas.yp-c.yandex.net"}, vim.fn.hostname())
 
 vim.g.mapleader = ' '
