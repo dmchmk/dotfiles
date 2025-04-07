@@ -23,18 +23,18 @@ multiplier = 3
 
 [font]
 size = 13
-#use_thin_strokes = true
+# use_thin_strokes = true
 
 [font.normal]
-family = "RecMono Linear Nerd Font Mono"
+family = "RecMonoLinear Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "RecMono Linear Nerd Font Mono"
+family = "RecMonoLinear Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "RecMono Linear Nerd Font Mono"
+family = "RecMonoLinear Nerd Font Mono"
 style = "Regular Italic"
 
 [font.offset]
@@ -85,3 +85,22 @@ hide_when_typing = true
 style = "Block"
 unfocused_hollow = true
 
+[keyboard]
+bindings = [
+  { key = "C", mods = "Command", chars = "\u0003" },
+  { key = "D", mods = "Command", chars = "\u0004" },
+  { key = "E", mods = "Command", chars = "\u0005" },
+  { key = "H", mods = "Command", chars = "\u0008" },
+  { key = "I", mods = "Command", chars = "\u0009" },
+  { key = "J", mods = "Command", chars = "\u000a" },
+  { key = "K", mods = "Command", chars = "\u000b" },
+  { key = "L", mods = "Command", chars = "\u000c" },
+  { key = "O", mods = "Command", chars = "\u000f" },
+  { key = "R", mods = "Command", chars = "\u0012" },
+  { key = "T", mods = "Command", chars = "\u0014" },
+  { key = "U", mods = "Command", chars = "\u0015" },
+  { key = "W", mods = "Command", chars = "\u0017" },
+  { key = "X", mods = "Command", chars = "\u0018" },
+  { key = "Y", mods = "Command", chars = "\u0019" },
+  { key = "Z", mods = "Command", chars = "\u001a" },
+]
