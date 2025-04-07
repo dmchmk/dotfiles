@@ -79,7 +79,7 @@ color = "0xffffff"
 duration = 0
 
 [mouse]
-hide_when_typing = true
+hide_when_typing = false
 
 [cursor]
 style = "Block"
@@ -87,6 +87,7 @@ unfocused_hollow = true
 
 [keyboard]
 bindings = [
+  { key = "A", mods = "Command", chars = "\u0001" },
   { key = "C", mods = "Command", chars = "\u0003" },
   { key = "D", mods = "Command", chars = "\u0004" },
   { key = "E", mods = "Command", chars = "\u0005" },

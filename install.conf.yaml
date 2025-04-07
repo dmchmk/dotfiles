@@ -10,7 +10,7 @@
     ~/.zshrc: shell/zsh/zshrc
     ~/.bashrc: shell/bash/bashrc
     ~/.config/nvim: nvim
-    ~/.alacritty.toml: conf/alacritty.toml
+    ~/.config/alacritty: alacritty
 
 - asdf:
   - plugin: vim
