@@ -8,6 +8,7 @@ import = [
 live_config_reload = true
 
 [window]
+option_as_alt = "Both" # fixing Alt for MacOS
 dynamic_padding = true
 decorations = "None"
 startup_mode = "Maximized"
@@ -85,5 +86,5 @@ bindings = [
   { key = "X", mods = "Command", chars = "\u0018" },
   { key = "Y", mods = "Command", chars = "\u0019" },
   { key = "Z", mods = "Command", chars = "\u001a" },
-  { key = "F", mods = "Command", action = "ToggleMaximized" },
+  { key = "F", mods = "Control", action = "ToggleMaximized" },
 ]
