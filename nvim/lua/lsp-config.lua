@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, Append(bufopts, "desc", "Go to definition"))
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, Append(bufopts, "desc", "Go to implementation"))
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, Append(bufopts, "desc", "Go to references"))
+  vim.keymap.set("n", "gr", require'telescope.builtin'.lsp_references, Append(bufopts, "desc", "Go to references"))
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -102,7 +102,17 @@ require("lspconfig").lua_ls.setup({
   capabilities = capabilities,
   handlers = handlers
 })
-require("lspconfig").gopls.setup { capabilities = capabilities, handlers = handlers, on_attach = on_attach}
+require("lspconfig").gopls.setup { capabilities = capabilities, handlers = handlers, on_attach = on_attach,
+  cmd = IsYandex and { "/home/dmchumak/.ya/tools/v3/gopls-linux/gopls" },
+  root_dir = IsYandex and require('lspconfig').util.root_pattern("YAOWNERS", "ya.make", ".arcadia.root", ".cloudia.root", "go.work", "go.mod", ".git"),
+  -- settings = {
+  --   gopls = {
+  --     arcadiaIndexDirs = {
+  --       "/home/horseinthesky/bl/cloud-go/cloud/cloud-go/cloudgate",
+  --     },
+  --   },
+  -- },
+}
 require("lspconfig").bashls.setup { capabilities = capabilities, handlers = handlers,
   on_attach = on_attach,
   settings = {
