@@ -88,6 +88,11 @@ local plugins = {
 
 require("lazy").setup(plugins)
 
+vim.cmd([[
+  set termguicolors
+  hi Cursor guifg=red guibg=green
+  set guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor,o:hor50-Cursor/lCursor,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175-Cursor/lCursor
+]])
 require("plugins/telescope")
 require("plugins/completions")
 require("plugins/gitsigns")
