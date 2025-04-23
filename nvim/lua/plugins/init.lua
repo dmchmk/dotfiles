@@ -84,6 +84,14 @@ local plugins = {
       -- Your setup opts here
     },
   },
+  {
+    "olimorris/codecompanion.nvim",
+    opts = {},
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
 }
 
 require("lazy").setup(plugins)
@@ -96,3 +104,4 @@ vim.cmd([[
 require("plugins/telescope")
 require("plugins/completions")
 require("plugins/gitsigns")
+require("plugins/codecompanion")
