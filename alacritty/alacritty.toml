@@ -28,7 +28,7 @@ history = 0
 multiplier = 3
 
 [font]
-size = 13
+size = 12
 # use_thin_strokes = true
 # on mac - https://petar.dev/notes/crisp-fonts-alacritty/
 
