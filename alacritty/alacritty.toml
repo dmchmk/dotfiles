@@ -28,7 +28,7 @@ history = 0
 multiplier = 3
 
 [font]
-size = 12
+size = 14
 # use_thin_strokes = true
 # on mac - https://petar.dev/notes/crisp-fonts-alacritty/
 
@@ -74,6 +74,10 @@ bindings = [
   { key = "C", mods = "Command", chars = "\u0003" },
   { key = "D", mods = "Command", chars = "\u0004" },
   { key = "E", mods = "Command", chars = "\u0005" },
+  # to make Command-H work in MacOS one need to go to
+  # Settings > keyboard > Hotkeys > Apps' hotkeys
+  # and create some other hotkey for Alacritty's
+  # "Hide alacritty"
   { key = "H", mods = "Command", chars = "\u0008" },
   { key = "I", mods = "Command", chars = "\u0009" },
   { key = "J", mods = "Command", chars = "\u000a" },
