@@ -33,7 +33,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, Append(bufopts, "desc", "Go to definition"))
   vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
   vim.keymap.set("n", "gi", vim.lsp.buf.implementation, Append(bufopts, "desc", "Go to implementation"))
-  vim.keymap.set("n", "gr", require'telescope.builtin'.lsp_references, Append(bufopts, "desc", "Go to references"))
+  vim.keymap.set("n", "gr", require 'telescope.builtin'.lsp_references, Append(bufopts, "desc", "Go to references"))
   vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -118,6 +118,37 @@ require("lspconfig").bashls.setup { capabilities = capabilities, handlers = hand
   settings = {
     bashIde = {
       globPattern = "*@(.sh|.inc|.bash|.command)"
+    }
+  }
+}
+require("lspconfig").nixd.setup { capabilities = capabilities, handlers = handlers,
+  cmd = { 'nixd' },
+  filetypes = { 'nix' },
+  root_dir = function(fname)
+    return require('lspconfig.util').root_pattern(
+      'flake.nix',
+      'shell.nix',
+      'default.nix',
+      '.git'
+    )(fname) or vim.fn.getcwd()
+  end,
+  on_attach = on_attach,
+  settings = {
+    nixd = {
+      formatting = {
+        command = { "nixpkgs-fmt" } -- Uses nixpkgs-fmt for formatting
+      },
+      eval = {
+        depth = 3,   -- Evaluation depth
+        workers = 2, -- Number of evaluation workers
+      },
+      completion = {
+        autoImport = true -- Auto-import completions
+      },
+      nixpkgs = {
+        expr = "import <nixpkgs> {}", -- Default nixpkgs expression
+        -- path = "/path/to/your/nixpkgs" -- Optional explicit path
+      }
     }
   }
 }
