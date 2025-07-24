@@ -15,10 +15,6 @@ local plugins = {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   {
-    "neovim/nvim-lspconfig",
-    dependencies = { 'hrsh7th/cmp-nvim-lsp' }
-  },
-  {
     'projekt0n/github-nvim-theme',
     name = 'github-theme',
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
@@ -51,9 +47,8 @@ local plugins = {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      preset = "modern",
+      show_help = false, -- workaround for border glitch https://github.com/folke/which-key.nvim/issues/967#issuecomment-2842309305
     },
     keys = {
       {
