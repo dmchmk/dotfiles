@@ -87,6 +87,38 @@ local plugins = {
       "nvim-treesitter/nvim-treesitter",
     },
   },
+  {
+    "yetone/avante.nvim",
+    build = vim.fn.has("win32") ~= 0
+        and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+        or "make",
+    event = "VeryLazy",
+    version = false, -- Never set this value to "*"! Never!
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      provider = "yadeepseek",
+      providers = {
+        yadeepseek = {
+          __inherited_from = "openai",
+          api_key_name = "cmd:cat ~/.config/eliza_api_key",
+          endpoint = "https://api.eliza.yandex.net/raw/internal/deepseek/v1",
+          model = "deepseek-0324",
+        },
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+      "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua",              -- for file_selector provider fzf
+      -- "stevearc/dressing.nvim",        -- for input provider dressing
+      -- "folke/snacks.nvim",             -- for input provider snacks
+      -- "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
+    },
+  }
 }
 
 require("lazy").setup(plugins)
