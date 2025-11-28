@@ -39,3 +39,11 @@ vim.keymap.set('v','<leader>y','"+y')
 -- Keymap to navigate between tabs
 vim.keymap.set('n', 'H', 'gT')
 vim.keymap.set('n', 'L', 'gt')
+
+-- Makeing :W and :Q work same as :w and :q
+vim.cmd("command! -bar -nargs=* -complete=file -range=% -bang W         <line1>,<line2>write<bang> <args>")
+vim.cmd("command! -bar -nargs=* -complete=file -range=% -bang Write     <line1>,<line2>write<bang> <args>")
+vim.cmd("command! -bar -nargs=* -complete=file -range=% -bang Wq        <line1>,<line2>wq<bang> <args>")
+vim.cmd("command! -bar                                  -bang Q         quit<bang>")
+vim.cmd("command! -bar                                  -bang Qall      qall<bang>")
+vim.cmd("command! -bar                                  -bang Qa        qall<bang>")
