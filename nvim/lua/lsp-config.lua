@@ -3,7 +3,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     'lua_ls',
     'gopls',
-    'bashls',
+    'bashls', -- install "shfmt" binary for formatting capabilities
     'basedpyright',
   },
   automatic_installation = true,
@@ -73,3 +73,4 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("bashls")
 vim.lsp.enable("gopls")
 vim.lsp.enable("basedpyright")
+vim.lsp.enable("starpls")

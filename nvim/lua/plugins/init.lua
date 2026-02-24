@@ -24,9 +24,9 @@ local plugins = {
         -- ...
       })
 
-      -- vim.cmd('colorscheme github_light_colorblind')
+      vim.cmd('colorscheme github_light_colorblind')
       -- vim.cmd('colorscheme github_light')
-      vim.cmd('colorscheme github_dark_colorblind')
+      -- vim.cmd('colorscheme github_dark_colorblind')
       -- vim.cmd('colorscheme github_dark')
     end,
   },
@@ -79,14 +79,14 @@ local plugins = {
       -- Your setup opts here
     },
   },
-  {
-    "olimorris/codecompanion.nvim",
-    opts = {},
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-  },
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   opts = {},
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  -- },
   {
     "yetone/avante.nvim",
     build = vim.fn.has("win32") ~= 0
@@ -97,13 +97,28 @@ local plugins = {
     ---@module 'avante'
     ---@type avante.Config
     opts = {
-      provider = "yadeepseek",
+      provider = "yaqwencode",
       providers = {
         yadeepseek = {
           __inherited_from = "openai",
           api_key_name = "cmd:cat ~/.config/eliza_api_key",
           endpoint = "https://api.eliza.yandex.net/raw/internal/deepseek/v1",
           model = "deepseek-0324",
+          use_ReAct_prompt = true,
+        },
+        yaqwencode = {
+          __inherited_from = "openai",
+          api_key_name = "cmd:cat ~/.config/eliza_api_key",
+          endpoint = "https://api.eliza.yandex.net/raw/internal/qwen3-coder-480b-a35b-runtime/v1",
+          model = "qwen3-coder-480b-a35b-runtime",
+          use_ReAct_prompt = true,
+        },
+        yaclaude = {
+          __inherited_from = "openai",
+          api_key_name = "cmd:cat ~/.config/eliza_api_key",
+          endpoint = "https://api.eliza.yandex.net/raw/anthropic/v1",
+          model = "claude-opus-4-5-20251101",
+          -- use_ReAct_prompt = true,
         },
       },
     },
@@ -131,4 +146,4 @@ vim.cmd([[
 require("plugins/telescope")
 require("plugins/completions")
 require("plugins/gitsigns")
-require("plugins/codecompanion")
+-- require("plugins/codecompanion")
