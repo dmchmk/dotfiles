@@ -15,10 +15,6 @@ local plugins = {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   {
-    "neovim/nvim-lspconfig",
-    dependencies = { 'hrsh7th/cmp-nvim-lsp' }
-  },
-  {
     'projekt0n/github-nvim-theme',
     name = 'github-theme',
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
@@ -51,9 +47,8 @@ local plugins = {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
+      preset = "modern",
+      show_help = false, -- workaround for border glitch https://github.com/folke/which-key.nvim/issues/967#issuecomment-2842309305
     },
     keys = {
       {
@@ -84,14 +79,61 @@ local plugins = {
       -- Your setup opts here
     },
   },
+  -- {
+  --   "olimorris/codecompanion.nvim",
+  --   opts = {},
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --   },
+  -- },
   {
-    "olimorris/codecompanion.nvim",
-    opts = {},
+    "yetone/avante.nvim",
+    build = vim.fn.has("win32") ~= 0
+        and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+        or "make",
+    event = "VeryLazy",
+    version = false, -- Never set this value to "*"! Never!
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      provider = "yaqwencode",
+      providers = {
+        yadeepseek = {
+          __inherited_from = "openai",
+          api_key_name = "cmd:cat ~/.config/eliza_api_key",
+          endpoint = "https://api.eliza.yandex.net/raw/internal/deepseek/v1",
+          model = "deepseek-0324",
+          use_ReAct_prompt = true,
+        },
+        yaqwencode = {
+          __inherited_from = "openai",
+          api_key_name = "cmd:cat ~/.config/eliza_api_key",
+          endpoint = "https://api.eliza.yandex.net/raw/internal/qwen3-coder-480b-a35b-runtime/v1",
+          model = "qwen3-coder-480b-a35b-runtime",
+          use_ReAct_prompt = true,
+        },
+        yaclaude = {
+          __inherited_from = "openai",
+          api_key_name = "cmd:cat ~/.config/eliza_api_key",
+          endpoint = "https://api.eliza.yandex.net/raw/anthropic/v1",
+          model = "claude-opus-4-5-20251101",
+          -- use_ReAct_prompt = true,
+        },
+      },
+    },
     dependencies = {
       "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+      "hrsh7th/nvim-cmp",              -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua",              -- for file_selector provider fzf
+      -- "stevearc/dressing.nvim",        -- for input provider dressing
+      -- "folke/snacks.nvim",             -- for input provider snacks
+      -- "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
     },
-  },
+  }
 }
 
 require("lazy").setup(plugins)
@@ -104,4 +146,4 @@ vim.cmd([[
 require("plugins/telescope")
 require("plugins/completions")
 require("plugins/gitsigns")
-require("plugins/codecompanion")
+-- require("plugins/codecompanion")

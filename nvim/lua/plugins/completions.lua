@@ -10,6 +10,7 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end
   },
+  preselect = cmp.PreselectMode.None;
   window = {
     documentation = cmp.config.window.bordered(),
     completion = { border = 'rounded' }
