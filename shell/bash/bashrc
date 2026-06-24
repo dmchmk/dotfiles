@@ -23,3 +23,7 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ $- == *i* ]] && [[ ! "$TE
     exec tmux new-session -As0
 fi
 
+if [ -f ~/.bashrc_local ]
+then
+  source ~/.bashrc_local
+fi
