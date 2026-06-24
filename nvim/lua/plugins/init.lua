@@ -15,20 +15,23 @@ local plugins = {
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   {
-    'projekt0n/github-nvim-theme',
-    name = 'github-theme',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    "scottmckendry/cyberdream.nvim",
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('github-theme').setup({
-        -- ...
-      })
-
-      vim.cmd('colorscheme github_light_colorblind')
-      -- vim.cmd('colorscheme github_light')
-      -- vim.cmd('colorscheme github_dark_colorblind')
-      -- vim.cmd('colorscheme github_dark')
-    end,
+      require('cyberdream').setup {
+        variant = "light",
+        colors = {
+          bg_highlight = "#e7eaf0",
+          light = {
+            bg_highlight = "#e7eaf0",
+          },
+        },
+        highlights = {
+          StatusLine = { fg = "#f6f8fa", bg = "#5094e4" },
+        },
+      }
+      require('cyberdream').load()
+    end
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",
