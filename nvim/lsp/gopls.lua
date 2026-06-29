@@ -1,5 +1,5 @@
 return {
-  cmd = { "/home/dmchumak/.ya/tools/v3/gopls-linux/gopls" },
+  cmd = { (IsYandex) and "/home/dmchumak/.ya/tools/v3/gopls-linux/gopls" or "gopls" },
   filetypes = { "go", "gotempl", "gowork", "gomod" },
   root_markers = { "ya.make", "YAOWNERS", ".arcadia.root", ".cloudia.root", "go.work", "go.mod", ".git" },
   -- settings = {
